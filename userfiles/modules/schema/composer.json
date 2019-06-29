@@ -1,0 +1,11 @@
+{
+    "name": "microweber-modules/schema",
+    "description": "Content schema processor",
+    "type": "metapackage",
+    
+    "autoload": {
+        "psr-4": {
+            "Microweber\\ContentSchema\\": "src/"
+        }
+    }
+}

@@ -68,7 +68,9 @@ mw.admin_backup = {
         mw_admin_backup_restore_preview_select_data_modal = mw.modal({
             content: '<div id="mw_admin_edit_backup_restore_item_module"></div>',
             title: 'Restore',
-            id: 'mw_admin_edit_backup_restore_item_popup_modal'
+            id: 'mw_admin_edit_backup_restore_item_popup_modal',
+			width:800,
+			height:600
         });
 
 

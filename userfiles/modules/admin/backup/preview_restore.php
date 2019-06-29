@@ -47,17 +47,18 @@ $arr_display_keys = array(
 ?>
 <?php if ($data_to_unzip) { ?>
 
+<table class="mw-ui-table" >
 
     <?php foreach ($data_to_unzip as $group => $data) { ?>
         <?php if (is_array($data)) { ?>
 
-            <h3 onclick="$('#table-group-toggle-<?php print $group ?>').toggle()"><?php print $group ?></h3>
-            <?php $first_data_item = reset($data) ?>
 
-            <table class="mw-ui-table" id="table-group-toggle-<?php print $group ?>">
+            <?php $first_data_item = reset($data) ?>
+            <?php $first_data_item_keys = array_keys($first_data_item) ?>
+
                 <thead>
                 <tr>
-                    <th scope="row"><?php print $group ?></th>
+                    <th scope="row"> <h3 onclick="$('#table-group-toggle-<?php print $group ?>').toggle()"><?php print $group ?></h3> </th>
 
                     <?php $printed_col_n = 0; ?>
                     <?php foreach ($arr_display_keys as $dk) : ?>
@@ -72,11 +73,14 @@ $arr_display_keys = array(
                     <?php endforeach; ?>
 
 
+
+
+
                 </tr>
                 </thead>
 
 
-                <tbody>
+                <tbody id="table-group-toggle-<?php print $group ?>">
 
 
                 <?php foreach ($data as $k => $item) : ?>
@@ -95,7 +99,7 @@ $arr_display_keys = array(
                             <?php foreach ($arr_display_keys as $dk) : ?>
 
                                 <?php if (isset($item[$dk]) and $item[$dk]) : ?>
-                                    <td><?php print strip_tags_content($item[$dk]) ?></td>
+                                    <td><?php print strip_tags($item[$dk]) ?></td>
                                 <?php endif; ?>
 
 
@@ -111,12 +115,12 @@ $arr_display_keys = array(
                 <?php endforeach; ?>
 
                 </tbody>
-            </table>
+
 
         <?php } ?>
 
     <?php } ?>
-
+</table>
 
 <?php } ?>
 
